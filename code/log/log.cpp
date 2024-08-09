@@ -65,7 +65,7 @@ void Log::init(int level = 1, const char* path, const char* suffix,int maxQueueS
     if(maxQueueSize > 0) {
         isAsync_ = true;    //启用异步日志模式
         if(!deque_) {   // 队列为空就创建一个
-            unique_ptr<BlockDeque<string>> newDeque(new BlockDeque<string>);
+            unique_ptr<BlockQueue<string>> newDeque(new BlockQueue<string>);
             // 因为unique_ptr不支持普通的拷贝或赋值操作,所以采用move
             // 将动态申请的内存权给deque，newDeque被释放
             deque_ = move(newDeque);    // 左值变右值,掏空newDeque

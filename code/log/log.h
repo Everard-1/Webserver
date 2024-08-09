@@ -74,7 +74,7 @@ private:
     bool isAsync_;      // 是否开启异步日志
 
     FILE* fp_;                                //打开log的文件指针
-    unique_ptr<BlockDeque<string>> deque_;    //阻塞队列
+    unique_ptr<BlockQueue<string>> deque_;    //阻塞队列
     unique_ptr<thread> writeThread_;          //写线程的指针
     mutex mtx_;                               //同步日志必需的互斥量
 };
