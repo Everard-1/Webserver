@@ -28,7 +28,7 @@ int m = vsnprintf(buff_.BeginWrite(), buff_.WritableBytes(), format, vaList);
 va_end(vaList);
 ```
 <a name="lVT0D"></a>
-### 阻塞队列BlockQeque
+### 阻塞队列BlockQueue
 阻塞队列采用deque实现。<br />若`MaxCapacity` 阻塞队列大小为0，则为同步日志，不需要阻塞队列。<br />内部有生产者消费者模型，搭配锁、条件变量使用。<br />其中，消费者防止任务队列为空，生产者防止任务队列满。
 <a name="xYRe5"></a>
 ### 日志的分级和分文件
