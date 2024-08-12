@@ -130,5 +130,6 @@ bool HttpConn::process() {
         iovCnt_ = 2;
     LOG_DEBUG("filesize:%d, %d  to %d", response_.FileLen() , iovCnt_, ToWriteBytes());
     return true;
+    }
 }
 
