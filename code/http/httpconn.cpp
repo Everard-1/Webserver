@@ -10,12 +10,12 @@ HttpConn::HttpConn() {
     fd_ = -1;                      // 套接字文件描述符初始化为无效值
     addr_ = { 0 };                 // 客户端地址信息初始化为零
     isClose_ = true;               // 标记连接为关闭状态
-};
+}
 
 // 关闭连接
 HttpConn::~HttpConn() { 
     Close(); 
-};
+}
 
 // 初始化连接，设置套接字文件描述符和客户端地址
 void HttpConn::init(int fd, const sockaddr_in& addr) {
@@ -44,7 +44,7 @@ void HttpConn::Close() {
 // 获取套接字文件描述符
 int HttpConn::GetFd() const {
     return fd_;
-};
+}
 
 // 获取客户端地址
 struct sockaddr_in HttpConn::GetAddr() const {
@@ -128,8 +128,8 @@ bool HttpConn::process() {
         iov_[1].iov_base = response_.File();
         iov_[1].iov_len = response_.FileLen();
         iovCnt_ = 2;
+    }
     LOG_DEBUG("filesize:%d, %d  to %d", response_.FileLen() , iovCnt_, ToWriteBytes());
     return true;
-    }
 }
 
