@@ -1,4 +1,8 @@
-项目功能
+<a name="SJLm4"></a>
+# webServer
+用C++实现的高性能Web服务器，经webbench压力测试可实现上万的QPS<br />[项目运行配置readme](https://github.com/zzct666/Webserver/blob/c3194f7754b5cb7cd970468408f5718465bc405b/config.md)
+<a name="rLJAA"></a>
+## 项目功能
 
 - 利用IO复用技术Epoll与线程池实现多线程的Reactor高并发模型；
 - 利用正则与状态机解析HTTP请求报文，实现处理静态资源的请求；
@@ -7,8 +11,20 @@
 - 利用单例模式与阻塞队列实现异步的日志系统，记录服务器运行状态；
 - 利用RAII机制实现了数据库连接池，减少数据库连接建立与关闭的开销，同时实现了用户注册登录功能。
 - 增加logsys,threadpool测试单元(todo: timer, sqlconnpool, httprequest, httpresponse)
+<a name="LIhjm"></a>
+## 项目运行效果：
+[https://github.com/zzct666/Webserver/issues/2#issue-2460346219](https://github.com/zzct666/Webserver/issues/2#issue-2460346219)
+<a name="fQ32u"></a>
+## 项目架构：
 
-项目架构：<br />![](https://cdn.nlark.com/yuque/0/2024/jpeg/27393008/1723444573730-3c04e7d0-4978-4813-877b-cb36f8a12b7d.jpeg)
+- [缓冲区readme](https://github.com/zzct666/Webserver/blob/c3194f7754b5cb7cd970468408f5718465bc405b/code/buffer/buffer_readme.md)
+- [日志系统readme](https://github.com/zzct666/Webserver/blob/c3194f7754b5cb7cd970468408f5718465bc405b/code/log/log_readme.md)
+- [线程池和连接池readme](https://github.com/zzct666/Webserver/blob/c3194f7754b5cb7cd970468408f5718465bc405b/code/pool/poll_readme.md)
+- [有限状态机+http连接readme](https://github.com/zzct666/Webserver/blob/c3194f7754b5cb7cd970468408f5718465bc405b/code/http/http_readme.md)
+- [小根堆定时器readme](https://github.com/zzct666/Webserver/blob/c3194f7754b5cb7cd970468408f5718465bc405b/code/timer/timer_readme.md)
+- [非阻塞socket+epoll+Reactor并发模型服务器](https://github.com/zzct666/Webserver/blob/c3194f7754b5cb7cd970468408f5718465bc405b/code/server/server_readme.md)
+
+![](https://cdn.nlark.com/yuque/0/2024/jpeg/27393008/1723444573730-3c04e7d0-4978-4813-877b-cb36f8a12b7d.jpeg)
 <a name="AS0L5"></a>
 # 项目总述
 ![](https://cdn.nlark.com/yuque/0/2024/png/27393008/1723444630277-db317875-5d35-48f0-9799-e16ff1898a78.png#averageHue=%23c0bab1&clientId=ub4d37c3c-d40f-4&from=paste&id=ue74b00bc&originHeight=448&originWidth=730&originalType=url&ratio=1.6500000953674316&rotation=0&showTitle=false&status=done&style=none&taskId=u94063435-7529-4e90-918c-ba5108b7517&title=)
